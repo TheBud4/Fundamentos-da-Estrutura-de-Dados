@@ -2,16 +2,16 @@
 // ---- Definicao dos tipos de dado -------------------------
 // ----------------------------------------------------------
 struct Pessoa {
-   char *nome;
+   char* nome;
    int  idade;
 };
 
 // ----------------------------------------------------------
-// ---- Definicao dos tipos de ponteiros para funcaoo---------
+// ---- Definicao dos tipos de ponteiros para funcao---------
 // ----------------------------------------------------------
-typedef  int  (*FuncaoComparacao)   (void *, void *);
-typedef  int  (*FuncaoPredicado)    (void *);
-typedef  void (*FuncaoOperacao)     (void *);
+typedef  int  (*FuncaoComparacao)   (void*, void*);
+typedef  int  (*FuncaoPredicado)    (void*);
+typedef  void (*FuncaoOperacao)     (void*);
 typedef  void (*FuncaoPessoa)       (struct Pessoa);
 
 // ----------------------------------------------------------
@@ -40,7 +40,7 @@ void aplicarOperacao(void* [], int, FuncaoOperacao);
    como a transmissao dos nomes das pessoas para outro sistema ou armazenamento em
    arquivo.
 */
-void identificarMenoresIdade(struct Pessoa [], int, FuncaoPessoa);
+void identificarMenoresIdade(struct Pessoa[], int, FuncaoPessoa);
 
 
 // ----------------------------------------------------------
@@ -48,41 +48,47 @@ void identificarMenoresIdade(struct Pessoa [], int, FuncaoPessoa);
 // ----------------------------------------------------------
 void bubbleSort(void* dados[], int tam, FuncaoComparacao pfc) {
 
-    int   res, i, j, r;
-    void  *temp;
+   int   res, i, j, r;
+   void* temp;
 
-    for (i=0; i<tam-1; i++){
-       /*printf("Iteracao %d \n", i+1);*/
-       for (j=0; j<tam-(i+1); j++){
+   for (i = 0; i < tam - 1; i++) {
+      /*printf("Iteracao %d \n", i+1);*/
+      for (j = 0; j < tam - (i + 1); j++) {
          /* invocacao da funcao de comparacao por meio do ponteiro para funcao*/
-         r = pfc(dados[j],dados[j+1]);
-         if (r<0){
-            temp       = dados[j];
-            dados[j]   = dados[j+1];
-            dados[j+1] = temp;
+         r = pfc(dados[j], dados[j + 1]);
+         if (r < 0) {
+            temp = dados[j];
+            dados[j] = dados[j + 1];
+            dados[j + 1] = temp;
          }
-       }
-    }
+      }
+   }
 }
 
 //---------------------------------------------------------------
-void* encontrarMaior(void* dados[], int tam, FuncaoComparacao pfc){
+void* encontrarMaior(void* dados[], int tam, FuncaoComparacao pfc) {
 
    return 0;
 }
 
 //---------------------------------------------------------------
-int contar(void* dados[], int tam, FuncaoPredicado pfp){
+int contar(void* dados[], int tam, FuncaoPredicado pfp) {
+   int i, contador = 0;
+   for(i = 0; i<tam; i++ ){
+      if(pfp(dados[i]) != 0){
+         contador++;
+      }
+   }
 
-   return 0;
+   return contador;
 }
 
 //---------------------------------------------------------------
-void aplicarOperacao(void* dados[], int tam, FuncaoOperacao pfo){
+void aplicarOperacao(void* dados[], int tam, FuncaoOperacao pfo) {
 
 }
 
 //---------------------------------------------------------------
-void identificaMenoresIdade(struct Pessoa pessoas[], int tam, FuncaoPessoa pfp){
+void identificaMenoresIdade(struct Pessoa pessoas[], int tam, FuncaoPessoa pfp) {
 
 }
