@@ -10,20 +10,20 @@ utilize somente aritmética de ponteiros.
 
 #include <stdio.h>
 
-int main(){
+int main() {
 
-    int *n;
-    int *vet;
-    int i, *maior;
+    int* n;
+    int* vet;
+    int i, * maior;
 
-    n = (int *)malloc(sizeof(int));
-    maior = (int *)malloc(sizeof(int));
+    n = (int*)malloc(sizeof(int));
+    maior = (int*)malloc(sizeof(int));
     vet = malloc(sizeof(int) * (*n));
 
     printf("Informe quantas vezes ira realizar o loop:\n");
     scanf("%d", n);
 
-    for (i = 0; i < *n; i++){
+    for (i = 0; i < *n; i++) {
         printf("Informe um numero: ");
         scanf("%d", vet);
         if (i == 1)
