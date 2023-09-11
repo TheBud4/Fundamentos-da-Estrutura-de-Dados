@@ -1,8 +1,8 @@
 
 /*
-3. [PONTEIRO COM VETOR] Escreva um programa em C que leia um nu mero inteiro N e,
-em seguida, aloque memo ria suficiente para armazenar N nu meros inteiros. Escreva
-tambe m uma funça o que receba os N nu meros inteiros e retorne o maior nu mero dentre
+3. [PONTEIRO COM VETOR] Escreva um programa em C que leia um numero inteiro N e,
+em seguida, aloque memoria suficiente para armazenar N numeros inteiros. Escreva
+tambem uma funça o que receba os N numeros inteiros e retorne o maior numero dentre
 eles.
 Obs: NÃO use a notação de vetor da linguagem C para manipulação dos elementos do vetor,
 utilize somente aritmética de ponteiros.
@@ -26,12 +26,11 @@ int main() {
     for (i = 0; i < *n; i++) {
         printf("Informe um numero: ");
         scanf("%d", vet);
-        if (i == 1)
+        if (i == 0)
             *maior = *vet;
         if (*vet > *maior)
-        {
             *maior = *vet;
-        }
+        
     }
     printf("Maior numero eh: %d", *maior);
 

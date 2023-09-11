@@ -68,14 +68,14 @@ void bubbleSort(void* dados[], int tam, FuncaoComparacao pfc) {
 //---------------------------------------------------------------
 void* encontrarMaior(void* dados[], int tam, FuncaoComparacao pfc) {
 
-   return 0;
+
 }
 
 //---------------------------------------------------------------
 int contar(void* dados[], int tam, FuncaoPredicado pfp) {
    int i, contador = 0;
-   for(i = 0; i<tam; i++ ){
-      if(pfp(dados[i]) != 0){
+   for (i = 0; i < tam; i++) {
+      if (pfp(dados[i]) != 0) {
          contador++;
       }
    }
