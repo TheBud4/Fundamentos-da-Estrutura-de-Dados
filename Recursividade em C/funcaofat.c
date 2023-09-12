@@ -1,6 +1,4 @@
-#include <stdio.h>
-
-
+#include <stdio.h> 
 int fat(int n) {
 
     if (n == 0)
@@ -10,9 +8,10 @@ int fat(int n) {
 
 }
 int main() {
-
-    int r = fat(5);
+    int num;
+    printf("informe um numero: \n");
+    scanf("%d", &num);
+    int r = fat(num);
     printf("%d\n", r);
-
     return 0;
 }
