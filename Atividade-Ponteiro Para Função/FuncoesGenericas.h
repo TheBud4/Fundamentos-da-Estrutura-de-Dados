@@ -4,7 +4,7 @@
 struct Pessoa {
    char* nome;
    int  idade;
-};
+   };
 
 // ----------------------------------------------------------
 // ---- Definicao dos tipos de ponteiros para funcao---------
@@ -60,16 +60,16 @@ void bubbleSort(void* dados[], int tam, FuncaoComparacao pfc) {
             temp = dados[j];
             dados[j] = dados[j + 1];
             dados[j + 1] = temp;
+            }
          }
       }
    }
-}
 
 //---------------------------------------------------------------
 void* encontrarMaior(void* dados[], int tam, FuncaoComparacao pfc) {
 
 
-}
+   }
 
 //---------------------------------------------------------------
 int contar(void* dados[], int tam, FuncaoPredicado pfp) {
@@ -77,18 +77,18 @@ int contar(void* dados[], int tam, FuncaoPredicado pfp) {
    for (i = 0; i < tam; i++) {
       if (pfp(dados[i]) != 0) {
          contador++;
+         }
       }
-   }
 
    return contador;
-}
+   }
 
 //---------------------------------------------------------------
 void aplicarOperacao(void* dados[], int tam, FuncaoOperacao pfo) {
 
-}
+   }
 
 //---------------------------------------------------------------
 void identificaMenoresIdade(struct Pessoa pessoas[], int tam, FuncaoPessoa pfp) {
 
-}
+   }
