@@ -66,29 +66,51 @@ void bubbleSort(void* dados[], int tam, FuncaoComparacao pfc) {
    }
 
 //---------------------------------------------------------------
-void* encontrarMaior(void* dados[], int tam, FuncaoComparacao pfc) {
+void* encontrarMaior(void* dados[], int tam, FuncaoComparacao pfc){
+   void *maior;
+   maior = dados[0];
+   int i;
 
+   for(i=1; i<tam; i++){
+      if (pfc(maior, dados[i])>0)
+         maior = dados[i];
 
    }
 
+   return maior;
+}
+//---------------------------------------------------------------'
+//pfp = parametro de ponteiro para funcao ... 
+int contar(void* dados[], int tam, FuncaoPredicado pfp){ 
+     
+     int i, cont=0;
+
+     for (i=0; i<tam;i++){
+      
+        if( pfp(dados[i]) != 0)
+         cont++;
+        
+     }
+   return cont; //retornando inteiro, é oq a função espera
+}
+
 //---------------------------------------------------------------
-int contar(void* dados[], int tam, FuncaoPredicado pfp) {
-   int i, contador = 0;
-   for (i = 0; i < tam; i++) {
-      if (pfp(dados[i]) != 0) {
-         contador++;
-         }
+void aplicarOperacao(void* dados[], int tam, FuncaoOperacao pfo){
+   int i;
+       for (i = 0; i < tam; i++) {
+        pfo(dados[i]);
       }
 
-   return contador;
-   }
+}
 
 //---------------------------------------------------------------
-void aplicarOperacao(void* dados[], int tam, FuncaoOperacao pfo) {
+void identificaMenoresIdade(struct Pessoa pessoas[], int tam, FuncaoPessoa pfp){
+    int i;
+    for (i = 0; i < tam; i++) {
+        if (pessoas[i].idade < 18) {
+            pfp(pessoas[i]);
+        }
+    }
+}
 
-   }
 
-//---------------------------------------------------------------
-void identificaMenoresIdade(struct Pessoa pessoas[], int tam, FuncaoPessoa pfp) {
-
-   }
