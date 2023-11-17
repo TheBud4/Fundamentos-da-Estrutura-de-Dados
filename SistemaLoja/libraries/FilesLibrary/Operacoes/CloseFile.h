@@ -1,7 +1,7 @@
 #ifndef CLOSE_H
 #define CLOSE_H
 
-void close(pDFile arq){
+void CloseFile(pDFile arq){
 
     fclose(arq->arquivo);
 

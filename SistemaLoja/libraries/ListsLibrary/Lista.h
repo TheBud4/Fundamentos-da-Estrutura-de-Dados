@@ -1,4 +1,4 @@
-#include "TAD_ListaLinear.h"
+#include "./TAD_ListaLinear.h"
 
 #include "Operacoes/0_structs.h"
 

@@ -1,7 +1,7 @@
 #ifndef CREATE_H
 #define CREATE_H
 
-void createe (pDFile arq, void* dados){
+void CreateRecord (pDFile arq, void* dados){
 
     if (arq->arquivo == NULL){
         printf("Arquivo n�o foi aberto!");

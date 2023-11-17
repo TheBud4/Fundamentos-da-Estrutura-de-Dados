@@ -1,10 +1,10 @@
 #ifndef QUERYALL_H
 #define QUERYALL_H
 
-pDLista queryAll(pDFile arq, FuncaoAloca pfa){
+pDLista QueryAll(pDFile arq, FuncaoAloca pfa){
 
    if (arq->arquivo == NULL){
-       printf("Arquivo não foi aberto!");
+       printf("Arquivo nï¿½o foi aberto!");
        return NULL;
    }
 
