@@ -1,7 +1,7 @@
-#ifndef INCLUIR_INFO_INICIO_H
-#define INCLUIR_INFO_INICIO_H
+#ifndef INCLUDE_INFO_FIRST_H
+#define INCLUDE_INFO_FIRST_H
 
-void incluirInfoInicio(pDLista pd, void *info){
+void IncludeInfoFirst(pDLista pd, void *info){
 
     if (pd == NULL){
         printf("Lista nao existe ainda, nao eh possivel incluir!");

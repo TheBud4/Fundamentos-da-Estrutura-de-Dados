@@ -1,9 +1,9 @@
-#ifndef DUPLICAR_LISTA_H
-#define DUPLICAR_LISTA_H
+#ifndef DUPLICATE_LIST_H
+#define DUPLICATE_LIST_H
 
-pDLista duplicarLista(pDLista pd, FuncaoAlocacao fa)
+pDLista DuplicateList(pDLista pd, FuncaoAlocacao fa)
 {
-    pDLista pNovaLista = criarLista();
+    pDLista pNovaLista = CreateList();
 
     pNoh atual = pd->primeiro;
     while (atual != NULL)
@@ -11,7 +11,7 @@ pDLista duplicarLista(pDLista pd, FuncaoAlocacao fa)
        /* aloca memoria e copia do valor do campo info */
        void *auxInfo = fa(atual->info);
        /* adiciona a copia da informacao na nova lista */
-       incluirInfo(pNovaLista, auxInfo);
+       IncludeInfo(pNovaLista, auxInfo);
 
        atual = atual->prox;
     }

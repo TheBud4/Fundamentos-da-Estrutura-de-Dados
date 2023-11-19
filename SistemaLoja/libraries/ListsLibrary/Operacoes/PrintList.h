@@ -1,7 +1,7 @@
-#ifndef IMPRIMIR_LISTA_H
-#define IMPRIMIR_LISTA_H
+#ifndef PRINT_LIST_H
+#define PRINT_LIST_H
 
-void imprimirLista(pDLista pd, FuncaoImpressao pfi){
+void PrintList(pDLista pd, FuncaoImpressao pfi){
 
     pNoh aux;
     aux = pd->primeiro;

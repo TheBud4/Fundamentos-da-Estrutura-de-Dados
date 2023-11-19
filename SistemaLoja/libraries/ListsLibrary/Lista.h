@@ -1,28 +1,35 @@
 #include "./TAD_ListaLinear.h"
 
-#include "Operacoes/0_structs.h"
+#include "./Operacoes/ListStructs.h"
 
-#include "Operacoes/1_criarLista.h"
+#include "./Operacoes/CreateList.h"
 
-#include "Operacoes/2_incluirInfo.h"
-#include "Operacoes/2_1_incluirInfoInicio.h"
-#include "Operacoes/2_2_incluirInfoMeio.h"
+#include "./Operacoes/IncludeInfo.h"
 
-#include "Operacoes/3_excluirInfo.h"
-#include "Operacoes/3_1_excluirInfoPos.h"
+#include "./Operacoes/IncludeInfoFirst.h"
 
-#include "Operacoes/4_contemInfo.h"
+#include "./Operacoes/IncludeInfoMiddle.h"
 
-#include "Operacoes/5_imprimirLista.h"
+#include "./Operacoes/ExcludeInfo.h"
 
-#include "Operacoes/6_destruirLista.h"
+#include "./Operacoes/ExcludeInfoPos.h"
 
-#include "Operacoes/7_duplicarLista.h"
+#include "./Operacoes/ContainInfo.h"
 
-#include "Operacoes/8_dividirLista.h"
+#include "./Operacoes/PrintList.h"
 
-#include "Operacoes/13_unirListas.h"
+#include "./Operacoes/DestructList.h"
+#include "./Operacoes/DestructListInfo.h"
+#include "./Operacoes/DestructNormalList.h"
 
-#include "Operacoes/9_buscarNohInfo.h"
+#include "./Operacoes/DuplicateList.h"
 
-#include "Operacoes/10_buscarInfoPos.h"
+#include "./Operacoes/DivideList.h"
+
+#include "./Operacoes/JoinLists.h"
+
+#include "./Operacoes/SearchNohInfo.h"
+
+#include "./Operacoes/SearchInfoPos.h"
+
+#include "./Operacoes/ReverseList.h"

@@ -1,10 +1,10 @@
-#ifndef DIVIDIR_LISTA_H
-#define DIVIDIR_LISTA_H
+#ifndef DIVIDE_LIST_H
+#define DIVIDE_LIST_H
 
-pDLista dividirLista(pDLista pListaOriginal, int pos)
+pDLista DivideList(pDLista pListaOriginal, int pos)
 {
     /* cria a nova lista para guardar parte do nohs da lista original */
-    pDLista pNovaLista = criarLista();
+    pDLista pNovaLista = CreateList();
 
     /* percorre a lista original para encontrar a posicao onde deve ser dividida */
     pNoh atual    = pListaOriginal->primeiro;

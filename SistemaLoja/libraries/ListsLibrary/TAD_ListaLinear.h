@@ -1,5 +1,5 @@
 #ifndef LISTA_TAD_H
-#define LISTA__TAD_H
+#define LISTA_TAD_H
 /*------------------------------------------*/
 /* tipos de dados                           */
 /*------------------------------------------*/
@@ -19,31 +19,33 @@ typedef void  (*FuncaoLiberacao)  (void *);
 /*------------------------------------------*/
 /* operacoes                                */
 /*------------------------------------------*/
-pDLista  criarLista       ();
+pDLista  CreateList       ();
 
-void     incluirInfo      (pDLista, void *);
-void     incluirInfoInicio(pDLista, void *);
-void     incluirInfoNoMeio(pDLista, void *, int);
+void     IncludeInfo      (pDLista, void *);
+void     IncludeInfoFirst(pDLista, void *);
+void     IncludeInfoMiddle(pDLista, void *, int);
 
-int      excluirInfo      (pDLista, void *, FuncaoComparacao);
+int      ExcludeInfo      (pDLista, void *, FuncaoComparacao);
 //int      excluirInfoEx3   (pDLista, void *, FuncaoComparacao, FuncaoLiberacao);
 
-int      contemInfo       (pDLista, void *, FuncaoComparacao);
-void     imprimirLista    (pDLista, FuncaoImpressao);
+int      ContainInfo       (pDLista, void *, FuncaoComparacao);
+void     PrintList    (pDLista, FuncaoImpressao);
 
-void     destruirLista        (pDLista);
-void     destruirListaNormal  (pDLista);
-void     destruirListaInfo    (pDLista, FuncaoLiberacao);
+void     DestructList        (pDLista);
+void     DestructNormalList  (pDLista);
+void     DestructListInfo    (pDLista, FuncaoLiberacao);
 
-pDLista  duplicarLista    (pDLista, FuncaoAlocacao);
+void    ReverseList (pDLista);
+
+pDLista  DuplicateList    (pDLista, FuncaoAlocacao);
 
 /* o parametro int estabelece a posicao da lista onde a divisao deve acontecer */
-pDLista  dividirLista     (pDLista, int);
+pDLista  DivideList     (pDLista, int);
 
-pDLista  unirListas     (pDLista, pDLista, FuncaoComparacao);
+pDLista  JoinLists     (pDLista, pDLista, FuncaoComparacao);
 
-void*    buscarNohInfo    (pDLista, void*, FuncaoComparacao);
-void*    buscarInfoPos    (pDLista, int);
+void*    SearchNohInfo    (pDLista, void*, FuncaoComparacao);
+void*    SearchInfoPos    (pDLista, int);
 
 #endif
 

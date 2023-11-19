@@ -1,12 +1,12 @@
-#ifndef DESTRUIR_LISTA_NORMAL_H
-#define DESTRUIR_LISTA_NORMAL_H
+#ifndef DESTRUCT_NORMAL_LIST_H
+#define DESTRUCT_NORMAL_LIST_H
 
 
 /* -------------------------------------*/
-void destruirLista(pDLista pd){
+void DestructList(pDLista pd){
 
    pNoh atual, aux;
-   atual = pd->prineiro;
+   atual = pd->primeiro;
 
    while (atual !=NULL){
 

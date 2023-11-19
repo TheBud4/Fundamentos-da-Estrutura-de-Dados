@@ -1,7 +1,7 @@
-#ifndef INCLUIR_INFO_H
-#define INCLUIR_INFO_H
+#ifndef INCLUDE_INFO_H
+#define INCLUDE_INFO_H
 
-void incluirInfo(pDLista pd, void *info){
+void IncludeInfo(pDLista pd, void *info){
 
     if (pd == NULL){
         printf("Lista nao existe ainda, nao eh possivel incluir!");

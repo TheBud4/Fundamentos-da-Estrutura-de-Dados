@@ -1,7 +1,7 @@
-#ifndef INCLUIR_INFO_MEIO_H
-#define INCLUIR_INFO_MEIO_H
+#ifndef INCLUDE_INFO_MIDDLE_H
+#define INCLUDE_INFO_MIDDLE_H
 
-void incluirInfoMeio(pDLista pd, void *info, int pos){
+void IncludeInfoMiddle(pDLista pd, void *info, int pos){
 
     if (pd == NULL){
         printf("Lista nao existe ainda, nao eh possivel incluir!");
@@ -9,17 +9,17 @@ void incluirInfoMeio(pDLista pd, void *info, int pos){
     }
 
     if(pd->quantidade == 0){
-        incluirInfo(pd, info);
+        IncludeInfo(pd, info);
         return;
     }
 
      if(pos > pd->quantidade){
-        incluirInfo(pd, info);
+        IncludeInfo(pd, info);
         return;
     }
 
      if(pos == 1){
-        incluirInfoInicio(pd, info);
+        IncludeInfoFirst(pd, info);
         return;
     }
 

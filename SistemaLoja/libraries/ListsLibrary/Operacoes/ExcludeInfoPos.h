@@ -1,7 +1,7 @@
-#ifndef EXCLUIR_INFO_POS_H
-#define EXCLUIR_INFO_POS_H
+#ifndef EXCLUDE_INFO_POS_H
+#define EXCLUDE_INFO_POS_H
 
-void* excluirInfoPos(pDLista pd, int pos){
+void* ExcludeInfoPos(pDLista pd, int pos){
 
     int cont=1;
 

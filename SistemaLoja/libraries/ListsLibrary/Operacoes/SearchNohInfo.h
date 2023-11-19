@@ -1,8 +1,8 @@
-#ifndef BUSCAR_NOH_INFO_H
-#define BUSCAR_NOH_INFO_H
+#ifndef SEARCH_NOH_INFO_H
+#define SEARCH_NOH_INFO_H
 
 /* --------------------------------- */
-void* buscarNohInfo(pDLista lista, void *info, FuncaoComparacao fc){
+void* SearchNohInfo(pDLista lista, void *info, FuncaoComparacao fc){
 
    pNoh atual = lista->primeiro;
 

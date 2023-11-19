@@ -1,5 +1,5 @@
-#ifndef STRUCTS_H
-#define STRUCTS_H
+#ifndef LIST_STRUCTS_H
+#define LIST_STRUCTS_H
 
 /* ------------------------------- */
 struct noh{

@@ -1,8 +1,8 @@
-#ifndef BUSCAR_INFO_POS_H
-#define BUSCAR_INFO_POS_H
+#ifndef SEARCH_INFO_POS_H
+#define SEARCH_INFO_POS_H
 
 /* --------------------------------- */
-void* buscarInfoPos(pDLista lista, int pos){
+void* SearchInfoPos(pDLista lista, int pos){
 
    pNoh atual = lista->primeiro;
    int  cont  = 1;

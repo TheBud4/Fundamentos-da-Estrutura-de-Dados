@@ -1,9 +1,9 @@
-#ifndef CRIAR_LISTA_H
-#define CRIAR_LISTA_H
+#ifndef CREATE_LIST_H
+#define CREATE_LIST_H
 
-#include "0_structs.h"
+#include "./ListStructs.h"
 
-pDLista criarLista(){
+pDLista CreateList(){
     /* aloca memoria para o descritor */
     pDLista pd = malloc(sizeof(DLista));
 

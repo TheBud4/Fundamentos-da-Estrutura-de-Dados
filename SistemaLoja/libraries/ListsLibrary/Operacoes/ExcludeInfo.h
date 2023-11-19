@@ -1,7 +1,7 @@
-#ifndef EXCLUIR_INFO_H
-#define EXCLUIR_INFO_H
+#ifndef EXCLUDE_INFO_H
+#define EXCLUDE_INFO_H
 
-int excluirInfo(pDLista pd, void *info, FuncaoComparacao pfc){
+int ExcludeInfo(pDLista pd, void *info, FuncaoComparacao pfc){
 
     pNoh atual, ant;
 

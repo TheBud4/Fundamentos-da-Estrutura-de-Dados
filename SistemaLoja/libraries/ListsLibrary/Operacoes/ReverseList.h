@@ -1,9 +1,9 @@
-#ifndef INVERTER_LISTA_H
-#define INVERTER_LISTA_H
+#ifndef REVERSE_LIST_H
+#define REVERSE_LIST_H
 
 
 /* -------------------------------------*/
-void inverterLista(pDLista pd){
+void ReverseList(pDLista pd){
 
     pNoh atual, aux, aux1;
 

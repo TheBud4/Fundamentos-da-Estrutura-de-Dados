@@ -1,7 +1,7 @@
-#ifndef CONTEM_INFO_H
-#define CONTEM_INFO_H
+#ifndef CONTAIN_INFO
+#define CONTAIN_INFO
 
-int contemInfo(pDLista pd, void *info, FuncaoComparacao pfc){
+int ContainInfo(pDLista pd, void *info, FuncaoComparacao pfc){
 
     pNoh aux;
     aux = pd->primeiro;

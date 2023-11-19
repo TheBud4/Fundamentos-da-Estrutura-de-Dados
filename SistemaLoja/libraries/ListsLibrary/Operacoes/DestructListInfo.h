@@ -1,10 +1,10 @@
-#ifndef DESTRUIR_LISTA_INFO_H
-#define DESTRUIR_LISTA_INFO_H
+#ifndef DESTRUCT_LIST_INFO_H
+#define DESTRUCT_LIST_INFO_H
 /* -------------------------------------*/
-void destruirListaInfo(pDLista pd, FuncaoLiberacao fl){
+void DestructListInfo(pDLista pd, FuncaoLiberacao fl){
 
    pNoh atual, aux;
-   atual = pd->prineiro;
+   atual = pd->primeiro;
 
    while (atual !=NULL){
 
