@@ -4,7 +4,7 @@
 void CreateRecord (pDFile arq, void* dados){
 
     if (arq->arquivo == NULL){
-        printf("Arquivo n�o foi aberto!");
+        printf("Arquivo nao foi aberto!");
         return;
     }
 
@@ -13,7 +13,7 @@ void CreateRecord (pDFile arq, void* dados){
     fseek (arq->arquivo, 0, SEEK_END);
     printf("Gravando....");
     int result = fwrite(dados, arq->tamanhoRegistro, 1, arq->arquivo);
-    printf("Resultado da grava��o: %d", result);
+    printf("Resultado da gravacao: %d", result);
 }
 
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <strings.h>
 #include "Persistencia.h"
-#include "Cap3/Lista.h"
+#include "../ListsLibrary/Lista.h"
 #include "Utils.h"
 
 struct pessoa{

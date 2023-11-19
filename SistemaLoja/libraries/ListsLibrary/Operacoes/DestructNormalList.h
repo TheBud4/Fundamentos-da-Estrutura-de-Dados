@@ -3,7 +3,7 @@
 
 
 /* -------------------------------------*/
-void DestructList(pDLista pd){
+void DestructNormalList(pDLista pd){
 
    pNoh atual, aux;
    atual = pd->primeiro;

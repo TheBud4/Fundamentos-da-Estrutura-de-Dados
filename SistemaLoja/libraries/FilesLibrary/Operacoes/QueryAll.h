@@ -4,11 +4,11 @@
 pDLista QueryAll(pDFile arq, FuncaoAloca pfa){
 
    if (arq->arquivo == NULL){
-       printf("Arquivo n�o foi aberto!");
+       printf("Arquivo nao foi aberto!");
        return NULL;
    }
 
-   pDLista lista = criarLista();
+   pDLista lista = CreateList();
 
    rewind(arq->arquivo);
    int result;
@@ -19,7 +19,7 @@ pDLista QueryAll(pDFile arq, FuncaoAloca pfa){
       if (result == 0)
         continue;
       //pfi(dados);
-      incluirInfo(lista, dados);
+      IncludeInfo(lista, dados);
    } while(result!=0);
 
    return lista;
