@@ -4,65 +4,44 @@
 #include "../ListsLibrary/Lista.h"
 #include "Utils.h"
 
-struct pessoa{
-   int      cpf;
-   char     nome[30];
-   int      idade;
-};
-
 void imprimePessoa(void *info){
-   struct pessoa *p = (struct pessoa *) info;
-   printf("CPF: %d - Nome: %s - Idade: %d\n", p->cpf, p->nome, p->idade);
+   struct Cliente *c = (struct Cliente *) info;
+   printf("\n- CPF: %d \n- Nome: %s \n- Idade: %f\n", c->CPF, c->Nome, c->LimiteCredito);
 }
-
-void* alocaPessoa(){
-   return malloc(sizeof(struct pessoa));
-}
-
-int comparaPessoaChave(void* info, void* chave){
-    struct pessoa *p = (struct pessoa *) info;
-    int* key = (int *) chave;
-    return *key - p->cpf;
- }
-
 void main(){
+   
+  pDFile ArqCliente;
 
-  struct pessoa p;
-
-  pDFile arqPessoa;
-
-  arqPessoa = open("Pessoa.dat", sizeof(struct pessoa));
+  ArqCliente = OpenFile("Pessoas.dat", sizeof(struct Cliente));
   int op = 1;
   while (op != 0) {
    printf("Digite o cpf: \n ");
-    scanf("%d", &p.cpf);
+    scanf("%d", &cliente.CPF);
     fflush(stdin);
    printf("Digite o nome: \n ");
 
-    fgets(p.nome, 30, stdin);
+    fgets(cliente.Nome, 30, stdin);
     fflush(stdin);
-   printf("Digite a idade: \n ");
+   printf("Digite o limite de credito: \n ");
 
-    scanf("%d", &p.idade);
+    scanf("%f", &cliente.LimiteCredito);
     fflush(stdin);
 
-    createe(arqPessoa, &p);
-    //update(arqPessoa, alocaInt(456), &p, comparaPessoaChave, alocaPessoa);
+    CreateRecord(ArqCliente, &cliente);
+    //update(ArqCliente, alocaInt(456), &p, comparaPessoaChave, alocaPessoa);
 
-    printf("Quer cadastrar outra pessoa? (0 - N�o, 1 - Sim) = ");
+    printf("Quer cadastrar outra pessoa? (0 - Nao, 1 - Sim) = ");
     scanf("%d", &op);
     fflush(stdin);
   }
 
-  pDLista listaPessoas = queryAll(arqPessoa, alocaPessoa);
+  pDLista listaPessoas = QueryAll(ArqCliente, AlocaCliente);
 
   int i;
   for(i=1; i <= listaPessoas->quantidade; i++){
-    struct pessoa* pp = (struct pessoa*) buscarInfoPos(listaPessoas, i);
+   struct Cliente* pp = (struct Cliente*) SearchInfoPos(listaPessoas, i);
     imprimePessoa(pp);
   }
 
-  close(arqPessoa);
-
-
+   CloseFile(ArqCliente);
 }

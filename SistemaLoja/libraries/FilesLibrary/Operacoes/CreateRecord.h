@@ -9,11 +9,15 @@ void CreateRecord (pDFile arq, void* dados){
     }
 
     // posiciona o ponteiro do arquivo no final do arquivo
-    printf("Posicionando....");
+    printf("\nPosicionando....\n");
     fseek (arq->arquivo, 0, SEEK_END);
-    printf("Gravando....");
+    printf("\nGravando....\n");
     int result = fwrite(dados, arq->tamanhoRegistro, 1, arq->arquivo);
-    printf("Resultado da gravacao: %d", result);
+    if(result == 1){
+    printf("\nGravado com sucesso \n");
+    }else{
+        printf("\nFalha na gravacao de arquivo\n");
+    }
 }
 
 
