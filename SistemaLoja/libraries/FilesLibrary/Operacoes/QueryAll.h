@@ -15,10 +15,9 @@ pDLista QueryAll(pDFile arq, FuncaoAloca pfa){
 
    do{
       void *dados = pfa();
-      result = fread (dados, arq->tamanhoRegistro, 1, arq->arquivo);
+      result = fread(dados, arq->tamanhoRegistro, 1, arq->arquivo);
       if (result == 0)
         continue;
-      //pfi(dados);
       IncludeInfo(lista, dados);
    } while(result!=0);
 

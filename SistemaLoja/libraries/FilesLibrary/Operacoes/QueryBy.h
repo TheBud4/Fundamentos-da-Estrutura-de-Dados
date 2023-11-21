@@ -3,32 +3,23 @@
 
 // FuncaoPredicado == alocaInt
 
-pDLista QueryBy  (pDFile arq, FuncaoPredicado pred){
-   
+pDLista QueryBy(pDFile arq, FuncaoPredicado pred){
+
    if (arq->arquivo == NULL){
-       printf("Arquivo nao foi aberto!");
-       return NULL;
+      printf("Arquivo nao foi aberto!");
+      return NULL;
    }
-
-   pDLista lista = CreateList();
-
    rewind(arq->arquivo);
-   
+
+   pDLista lista = QueryAll(arq, AlocaCliente);
+
+
    int result;
-      do{
-      void *dados = pfa();
-      result = fread (dados, arq->tamanhoRegistro, 1, arq->arquivo);
-      if (result == 0)
-        continue;
-      //pfi(dados);
-      IncludeInfo(lista, dados);
-   } while(result!=0);
+   do{
+
+   }while();
 
    return lista;
-
-
-   return NULL;
 }
 
 #endif
-
