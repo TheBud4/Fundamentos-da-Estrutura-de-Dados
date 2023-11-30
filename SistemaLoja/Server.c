@@ -13,7 +13,7 @@ void esperarTresSegundos(int tempo) {
 void exibirMenuPrincipal() {
     printf("\n --Bem Vindo--");
     esperarTresSegundos(3);
-    system("cls");
+    system("clear");
     printf("Selecione o que deseja fazer a seguir\n");
     printf("--------------------------------\n");
     printf("| 1 - Logar no sistema         |\n");
@@ -23,13 +23,13 @@ void exibirMenuPrincipal() {
 }
 
 void exibirMenuUsuario(void) {
-    system("cls");
+    system("clear");
     printf("Menu do Usuário:\n");
 
 }
 
 void exibirMenuAdministrador() {
-    system("cls");
+    system("clear");
     char adm[2];
     int sair = 0;
     do {
@@ -45,7 +45,7 @@ void exibirMenuAdministrador() {
         printf("| 8 - Sair                        |\n");
         printf("----------------------------------- \n");
         fgets(adm, sizeof(adm), stdin);
-        system("cls");
+        system("clear");
         switch (adm[0]) {
         case '1':
             break;
