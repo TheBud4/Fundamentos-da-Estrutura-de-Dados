@@ -1,25 +1,32 @@
 #ifndef QUERY_H
 #define QUERY_H
 
-// FuncaoPredicado == alocaInt
+pDLista QueryBy(pDFile arq, FuncaoPredicado pred) {
 
-pDLista QueryBy(pDFile arq, FuncaoPredicado pred){
+    if (arq->arquivo == NULL) {
+        printf("Arquivo nao foi aberto!");
+        return NULL;
+    }
+    rewind(arq->arquivo);
 
-   if (arq->arquivo == NULL){
-      printf("Arquivo nao foi aberto!");
-      return NULL;
-   }
-   rewind(arq->arquivo);
+    pDLista lista = CreateList();
 
-   pDLista lista = QueryAll(arq, AlocaCliente);
+    void* dados = malloc(arq->tamanhoRegistro);
 
+    if (dados == NULL) {
+        printf("Erro ao alocar memoria!");
+        DestructList(lista);
+        return NULL;
+    }
+    while (fread(dados, arq->tamanhoRegistro, 1, arq->arquivo) == 1) {
+        if (pred(dados)) {
+            IncludeInfo(lista, dados);
+        }
+    }
 
-   int result;
-   do{
+    free(dados);
 
-   }while();
-
-   return lista;
+    return lista;
 }
 
 #endif

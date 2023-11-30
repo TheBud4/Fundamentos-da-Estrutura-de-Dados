@@ -4,14 +4,30 @@
 #include "../ListsLibrary/Lista.h"
 #include "Utils.h"
 
-void imprimePessoa(void *info)
-{
-  struct Cliente *c = (struct Cliente *)info;
+void imprimePessoa(void* info) {
+  struct Cliente* c = (struct Cliente*)info;
   printf("\n- CPF: %d \n- Nome: %s \n- Limite de Credito: %f\n", c->CPF, c->Nome, c->LimiteCredito);
 }
-int main()
-{
+int pesquisaNome(void* info, void* nomeAlvo) {
+  if (info == NULL) {
+    return 0;
+  }
 
+  struct Cliente* cc = (struct Cliente*)info;
+
+  if (cc->Nome == NULL) {
+    return 0;
+  }
+  return (strcmp(cc->Nome, (const char*)nomeAlvo) == 0);
+}
+
+int comparaPessoaChave(void* info, void* chave) {
+  struct Cliente* p = (struct Cliente*)info;
+  int* key = (int*)chave;
+  return *key - p->CPF;
+}
+
+int main() {
   pDFile ArqCliente;
 
   ArqCliente = OpenFile("Pessoas.dat", sizeof(struct Cliente));
@@ -41,22 +57,18 @@ int main()
   pDLista listaPessoas = QueryAll(ArqCliente, AlocaCliente);
 
   int i;
-  for (i = 1; i <= listaPessoas->quantidade; i++){
-    struct Cliente *pp = (struct Cliente *)SearchInfoPos(listaPessoas, i);
+  for (i = 1; i <= listaPessoas->quantidade; i++) {
+    struct Cliente* pp = (struct Cliente*)SearchInfoPos(listaPessoas, i);
     imprimePessoa(pp);
   }
-  printf("\nPesquisa de Usuario!\n");
-  void *a[30];
-  fgets(a, 30, stdin);
-  fflush(stdin);
 
-  pDLista listaPesquisa = QueryBy(ArqCliente, AlocaCliente(a));
+  int a;
+  printf("\nPesquisa de CPF!\n");
+  scanf("%d", &a);
 
-  int j;
-  for (j = 1; j <= listaPessoas->quantidade; j++){
-    struct Cliente *pp = (struct Cliente *)SearchInfoPos(listaPesquisa, j);
-    imprimePessoa(pp);
-  }
+  struct Cliente* usuario = RetrieveRecord(ArqCliente, &a, comparaPessoaChave);
+  imprimePessoa(usuario);
 
   CloseFile(ArqCliente);
+  return 0;
 }

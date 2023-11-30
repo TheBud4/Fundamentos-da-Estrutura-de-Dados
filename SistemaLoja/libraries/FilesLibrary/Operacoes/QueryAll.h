@@ -1,11 +1,11 @@
 #ifndef QUERYALL_H
 #define QUERYALL_H
 
-pDLista QueryAll(pDFile arq, FuncaoAloca pfa){
+pDLista QueryAll(pDFile arq, FuncaoAloca pfa) {
 
-   if (arq->arquivo == NULL){
-       printf("Arquivo nao foi aberto!");
-       return NULL;
+   if (arq->arquivo == NULL) {
+      printf("Arquivo nao foi aberto!");
+      return NULL;
    }
 
    pDLista lista = CreateList();
@@ -13,13 +13,13 @@ pDLista QueryAll(pDFile arq, FuncaoAloca pfa){
    rewind(arq->arquivo);
    int result;
 
-   do{
-      void *dados = pfa();
+   do {
+      void* dados = pfa();
       result = fread(dados, arq->tamanhoRegistro, 1, arq->arquivo);
       if (result == 0)
-        continue;
+         continue;
       IncludeInfo(lista, dados);
-   } while(result!=0);
+   } while (result != 0);
 
    return lista;
 }

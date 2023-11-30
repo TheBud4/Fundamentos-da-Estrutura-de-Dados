@@ -37,7 +37,7 @@ void main(){
     v[2]= alocaInt[5];
     v[3]= alocaInt[8];
     v[4]= alocaInt[13];
-    n = contar(v,5,par);/
+    n = contar(v,5,par);
     printf("\n nº pares = %d",n);
     
      1
