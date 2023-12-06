@@ -5,14 +5,15 @@
 void esperarTresSegundos(int tempo) {
     time_t inicio = time(NULL);
     time_t atual;
-    do{
+    do {
         atual = time(NULL);
     } while (difftime(atual, inicio) < tempo);
 }
 
 void exibirMenuPrincipal() {
-    system("clear");
     printf("\n --Bem Vindo--\n");
+    esperarTresSegundos(3);
+    system("cls");
     printf("Selecione o que deseja fazer a seguir\n");
     printf("--------------------------------\n");
     printf("| 1 - Opcoes de Usuario        |\n");
@@ -23,7 +24,7 @@ void exibirMenuPrincipal() {
 }
 
 void exibirMenuUsuario(void) {
-    system("clear");
+    system("cls");
     printf("Menu do Usuário:\n");
 }
 
@@ -54,7 +55,7 @@ int main() {
             printf("Opcao invalida!\n");
             break;
         }
-    } while (!sair);
+    } while (sair != 1);
     printf("Programa encerrado.\n");
     return 0;
 }

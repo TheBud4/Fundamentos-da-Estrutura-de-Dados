@@ -3,8 +3,14 @@
 #include "../libraries/FilesLibrary/Persistencia.h"
 #include "../libraries/FilesLibrary/Utils.h"
 #include "../libraries/ListsLibrary/Lista.h"
-      
-   static pDFile ArqProduto;
+
+static pDFile ArqProduto;
+
+static int ComparaCodProduto(void* info, void* chave) {
+    struct Cliente* p = (struct Cliente*)info;
+    int* key = (int*)chave;
+    return *key - p->CPF;
+};
 
 static void ImprimeProduto(void* info) {
     struct Produto* produto = (struct Produto*)info;
@@ -12,7 +18,7 @@ static void ImprimeProduto(void* info) {
 }
 
 static void AdicionarProduto() {
-    ArqProduto = OpenFile("prod.dat", sizeof(struct Produto));
+    ArqProduto = OpenFile("../database/Produtos.dat", sizeof(struct Produto));
     printf("--Adicionar Produto--\n");
 
     int op = 1;
@@ -27,7 +33,7 @@ static void AdicionarProduto() {
         fflush(stdin);
 
         printf("\nDIGITE O VALOR UNITARIO DO PRODUTO:  ");
-        scanf("%f", &produto.Preco); 
+        scanf("%f", &produto.Preco);
         fflush(stdin);
 
         CreateRecord(ArqProduto, &produto);
@@ -38,11 +44,21 @@ static void AdicionarProduto() {
     }
     CloseFile(ArqProduto);
 }
+
 static void RemoverProduto() {
+    ArqProduto = OpenFile("../database/Produtos.dat", sizeof(struct Produto));
+    int a;
+    printf("\nDigite o codigo do produto que deseja remover!\n");
+    scanf("%d", &a);
+
+    DeleteRecord(ArqProduto, &a, ComparaCodProduto);
 
 }
 
 static void ListarProdutos() {
+
+    ArqProduto = OpenFile("../database/Produtos.dat", sizeof(struct Produto));
+
     pDLista ListaProdutos = QueryAll(ArqProduto, AlocaProduto);
 
     int i;
@@ -53,16 +69,57 @@ static void ListarProdutos() {
 
 }
 
-
 static void EditarProduto() {
+    void* a;
+    ArqProduto = OpenFile("../database/Produtos.dat", sizeof(struct Produto));
+    printf("\nDigite Codigo do Produto para atualizar: ");
+    scanf("%d", &a);
+
+
+    void* produtoExistente = RetrieveRecord(ArqProduto, &a, ComparaCodProduto);
+
+    if (produtoExistente != NULL) {
+        struct Produto* novoDados = (struct Produto*)produtoExistente;
+        int op;
+
+        printf("\n Deseja alterar o nome? Sim: 1, Nao: 0 :");
+        scanf("%d", &op);
+
+        if (op == 1) {
+            printf("Digite o novo Nome do Produto: ");
+            scanf("%s", novoDados->Descricao);
+        }
+
+        printf("\n Digite o novo preco do Produto: ");
+        scanf("%d", &novoDados->Preco);
+
+
+        novoDados->Codigo = a;
+
+
+        update(ArqProduto, &a, novoDados, ComparaCodProduto, AlocaProduto);
+        printf("Produto atualizado com sucesso.\n\n");
+    }
+
+    else {
+        printf("Produto com Codigo %d nao encontrado para atualizacao.\n\n", a);
+
+    }
 
 }
-static void ProcurarPorChave() {
 
+static void ProcurarPorChave() {
+    ArqProduto = OpenFile("../database/Produtos.dat", sizeof(struct Produto));
+    void* a;
+    printf("\n Insira o codigo do produto que deseja procurar!\n");
+    scanf("%d", &a);
+    pDLista Produto = RetrieveRecord(ArqProduto, &a, ComparaCodProduto);
+    struct Cliente* pp = (struct Cliente*)Produto;
+    ImprimeProduto(pp);
 }
 
 void exibirMenuProduto() {
-    system("clear");
+    system("cls");
     char op[2];
     int sair = 0;
     do {
@@ -73,12 +130,9 @@ void exibirMenuProduto() {
         printf("| 3 - Editar Produto              |\n");
         printf("| 4 - Listar Produtos             |\n");
         printf("| 5 - Procurar Por Chave          |\n");
-        printf("| 6 - Adicionar Lista de Produtos |\n");
-        printf("| 7 - Sair                        |\n");
-        printf("| 8 - Sair                        |\n");
+        printf("| 6 - Sair                        |\n");
         printf("----------------------------------- \n");
         fgets(op, sizeof(op), stdin);
-        system("clear");
         switch (op[0]) {
         case '1':
             AdicionarProduto();
@@ -100,12 +154,12 @@ void exibirMenuProduto() {
             ProcurarPorChave();
 
             break;
-        case '8':
+        case '6':
             sair = 1;
             break;
         default:
-            printf("Opcao invalida!\n");
+            //printf("Opcao invalida!\n");
             break;
         }
-    } while (!sair);
+    } while (sair != 1);
 }

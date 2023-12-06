@@ -37,7 +37,7 @@ int main() {
   //   CreateRecord(ArqCliente, &cliente);
   //   //update(ArqCliente, alocaInt(456), &p, comparaPessoaChave, alocaPessoa);
 
-  //   printf("Quer cadastrar outra pessoa? (0 - Nao, 1 - Sim) = ");
+  //   printf("Quer cadastrar outra pessoa?88 (0 - Nao, 1 - Sim) = ");
   //   scanf("%d", &op);
   //   fflush(stdin);
   // }
@@ -54,13 +54,8 @@ int main() {
   printf("\nPesquisa de CPF!\n");
   scanf("%d", &a);
 
-  //DeleteRecord(ArqCliente, &a, comparaPessoaChave);
-  listaPessoas = QueryAll(ArqCliente, AlocaCliente);
+  DeleteRecord(ArqCliente, &a, comparaPessoaChave);
 
-  for (i = 1; i <= listaPessoas->quantidade; i++) {
-    struct Cliente* pp = (struct Cliente*)SearchInfoPos(listaPessoas, i);
-    imprimePessoa(pp);
-  }
 
   CloseFile(ArqCliente);
   return 0;
