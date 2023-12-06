@@ -5,6 +5,9 @@ struct Cliente {
 } cliente;
 struct Venda {
     int Numero;
+    int CPF;
+    int CodigoProduto;
+    int Quantidade;
     float PrecoVenda;
 } venda;
 struct Produto {

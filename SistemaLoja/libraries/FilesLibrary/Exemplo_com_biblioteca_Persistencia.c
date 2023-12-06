@@ -8,18 +8,6 @@ void imprimePessoa(void* info) {
   struct Cliente* c = (struct Cliente*)info;
   printf("\n- CPF: %d \n- Nome: %s \n- Limite de Credito: %f\n", c->CPF, c->Nome, c->LimiteCredito);
 }
-int pesquisaNome(void* info, void* nomeAlvo) {
-  if (info == NULL) {
-    return 0;
-  }
-
-  struct Cliente* cc = (struct Cliente*)info;
-
-  if (cc->Nome == NULL) {
-    return 0;
-  }
-  return (strcmp(cc->Nome, (const char*)nomeAlvo) == 0);
-}
 
 int comparaPessoaChave(void* info, void* chave) {
   struct Cliente* p = (struct Cliente*)info;
@@ -66,8 +54,13 @@ int main() {
   printf("\nPesquisa de CPF!\n");
   scanf("%d", &a);
 
-  struct Cliente* usuario = RetrieveRecord(ArqCliente, &a, comparaPessoaChave);
-  imprimePessoa(usuario);
+  //DeleteRecord(ArqCliente, &a, comparaPessoaChave);
+  listaPessoas = QueryAll(ArqCliente, AlocaCliente);
+
+  for (i = 1; i <= listaPessoas->quantidade; i++) {
+    struct Cliente* pp = (struct Cliente*)SearchInfoPos(listaPessoas, i);
+    imprimePessoa(pp);
+  }
 
   CloseFile(ArqCliente);
   return 0;
